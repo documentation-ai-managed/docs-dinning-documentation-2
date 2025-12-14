@@ -1,0 +1,111 @@
+---
+title: Platform Configuration
+description: Customize your documentation space with settings and preferences to fit your project's needs.
+---
+
+## Overview
+
+Customize ดีเจ Dinning Documentation to match your project's branding and workflow. Access the configuration panel from the admin dashboard to adjust themes, permissions, search settings, and backups. These options ensure your documentation space aligns perfectly with your team's needs.
+
+<Columns cols={2}>
+  <Card title="Themes & Branding" icon="palette" href="#themes">
+    Apply custom colors and logos.
+  </Card>
+  <Card title="User Permissions" icon="users" href="#permissions">
+    Control access levels securely.
+  </Card>
+  <Card title="Search & Indexing" icon="search" href="#search">
+    Optimize content discoverability.
+  </Card>
+  <Card title="Export & Backup" icon="download" href="#backup">
+    Protect and export your data.
+  </Card>
+</Columns>
+
+## Setting up Themes and Branding
+
+Tailor the visual identity of your documentation space. Start by navigating to **Settings > Themes** in the admin panel.
+
+<Steps>
+  <Step title="Select Theme" icon="palette">
+    Choose from predefined themes or create a custom one.
+  </Step>
+  <Step title="Apply Branding" icon="upload">
+    Upload your logo and set primary colors. For ดีเจ Dinning, use brand color `#3B82F6`.
+  </Step>
+  <Step title="Preview Changes" icon="eye">
+    Preview on a test page before saving.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,CSS">
+```json
+{
+  "primaryColor": "#3B82F6",
+  "logoUrl": "https://your-domain.com/logo.png",
+  "fontFamily": "Inter, sans-serif"
+}
+```
+```css
+:root {
+  --primary-color: #3B82F6;
+  --logo-url: url('https://your-domain.com/logo.png');
+}
+```
+</CodeGroup>
+
+<Callout kind="tip">
+  Save changes immediately to apply across all pages. Test on multiple devices for responsiveness.
+</Callout>
+
+## Managing User Permissions
+
+Define who can view, edit, or administer your documentation. Permissions prevent unauthorized changes.
+
+| Role          | View | Edit | Admin | Invite Users |
+|---------------|------|------|-------|--------------|
+| Viewer        | ✅   | ❌   | ❌    | ❌           |
+| Editor        | ✅   | ✅   | ❌    | ❌           |
+| Administrator | ✅   | ✅   | ✅    | ✅           |
+
+<Tabs>
+  <Tab title="Invite User" icon="user-plus">
+    Go to **Team > Invite** and enter email addresses.
+  </Tab>
+  <Tab title="Set Permissions" icon="shield">
+    Select role from dropdown and confirm.
+  </Tab>
+</Tabs>
+
+## Configuring Search and Indexing
+
+Enable full-text search across your documentation. Configure indexing for faster results.
+
+<Expandable title="Advanced Search Options" default-open="false">
+  Set `searchIndex: true` in config to enable. Exclude private pages with `excludePaths`.
+
+```javascript
+// config.js
+module.exports = {
+  search: {
+    enabled: true,
+    exclude: ['/drafts/*', '/private/*']
+  }
+};
+```
+</Expandable>
+
+## Export and Backup Options
+
+Safeguard your content with regular exports. Schedule automated backups to external storage.
+
+<Callout kind="warning">
+  Enable backups before major updates to avoid data loss.
+</Callout>
+
+```bash
+# Export via CLI
+dj-dinning export --format=mdx --output=./backup
+```
+
+Use cloud storage like S3 with `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` for secure backups. This setup ensures quick recovery if needed. Your documentation remains organized and accessible at all times.

@@ -1,0 +1,119 @@
+---
+title: Changelog
+description: Track updates and improvements to ดีเจ Dinning Documentation over time.
+---
+
+## Recent Updates
+
+Stay informed about the latest enhancements in ดีเจ Dinning Documentation. You access all changes here, organized by release version. Each update highlights new features, improvements, bug fixes, and breaking changes.
+
+<Callout kind="info">
+  Subscribe to our RSS feed or join the Discord community to receive notifications for new releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for documentation teams, enabling multiple editors to work simultaneously.
+- Introduced custom brand color support, like `#3B82F6` for ดีเจ Dinning.
+
+## Improvements
+
+- Enhanced search functionality with fuzzy matching for faster navigation.
+- Optimized page load times by `>30%` through better asset bundling.
+
+## Bug Fixes
+
+- Fixed rendering issues with nested JSX components in MDX files.
+- Resolved escaping problems for special characters like `{` and `}` in prose.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated Tabs and CodeGroup components for multi-platform examples.
+- Added ParamField and ResponseField for comprehensive API documentation.
+
+## Bug Fixes
+
+- Corrected parsing errors in frontmatter YAML with no blank lines.
+- Patched heading hierarchy enforcement, starting always at H2.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## New Features
+
+- Launched core MDX documentation engine with 15+ components.
+- Supported full escaping for `<`, `>`, `{`, `}` in text.
+
+## Breaking Changes
+
+- Removed H1 support in body content; use frontmatter title exclusively.
+
+</Update>
+
+## Roadmap
+
+Explore upcoming features planned for ดีเจ Dinning Documentation. Prioritize based on community feedback.
+
+<Columns cols={3}>
+  <Card title="AI Assistance" icon="zap" href="/docs/ai-assist">
+    Auto-generate MDX from natural language prompts.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versioning">
+    Built-in Git integration for doc history.
+  </Card>
+  <Card title="Analytics" icon="bar-chart-3" href="/docs/analytics">
+    Track page views and engagement metrics.
+  </Card>
+</Columns>
+
+## Upgrading Your Docs
+
+Follow these steps to update to the latest version. Test in a staging environment first.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Export your current documentation site.
+  </Step>
+  <Step title="Update Package" icon="package">
+    Run the upgrade command for your platform.
+    <CodeGroup tabs="npm,yarn">
+      ```bash
+      npm update dj-dinning-docs@latest
+      ```
+      ```bash
+      yarn upgrade dj-dinning-docs@latest
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild" icon="refresh-cw">
+    Clear cache and rebuild.
+    ```bash
+    npm run build
+    ```
+  </Step>
+  <Step title="Deploy" icon="upload-cloud">
+    Push changes to production.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Review the migration guide for v1.2.0 if you use deprecated components.
+</Callout>
+
+<Expandable title="View Changes by Platform" default-open="false">
+  <Tabs>
+    <Tab title="Node.js" icon="nodejs">
+      Update dependencies in `package.json`.
+    </Tab>
+    <Tab title="Docker" icon="docker">
+      Pull the latest image: `docker pull dj-dinning/docs:latest`.
+    </Tab>
+  </Tabs>
+</Expandable>

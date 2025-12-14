@@ -1,0 +1,144 @@
+---
+title: Frequently Asked Questions
+description: Common questions and answers about using ดีเจ Dinning Documentation.
+---
+
+## Account and Billing
+
+Use this section to find answers to common account and billing questions. Expand the items below for details.
+
+<ExpandableGroup>
+  <Expandable title="How do I upgrade my plan?">
+    Log in to your dashboard and navigate to the Billing section. Select the plan you want and confirm the upgrade. You receive prorated credits for the remaining time on your current plan.
+  </Expandable>
+
+  <Expandable title="What payment methods do you accept?">
+    We support credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for enterprise plans. Update your payment details in the Billing settings.
+  </Expandable>
+
+  <Expandable title="Can I cancel my subscription anytime?">
+    Yes, cancel from the Billing page at any time. Your access continues until the end of the billing period, with no further charges.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">
+  For billing disputes, contact support within 30 days of the charge.
+</Callout>
+
+## Troubleshooting Common Issues
+
+Follow these steps to resolve frequent problems you encounter with ดีเจ Dinning Documentation.
+
+<Steps>
+  <Step title="Check Status" icon="alert-triangle">
+    Visit the [status page](https://status.djdinning.com) to confirm service availability.
+  </Step>
+
+  <Step title="Clear Cache" icon="refresh-cw">
+    Run this command in your project root:
+
+    ```bash
+    npm run docs:clear-cache
+    ```
+
+    Or for Yarn users:
+
+    ```bash
+    yarn docs:clear-cache
+    ```
+  </Step>
+
+  <Step title="Rebuild Docs" icon="refresh-ccw">
+    Rebuild your site:
+
+    <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm run docs:build
+    ```
+    ```bash
+    yarn docs:build
+    ```
+    </CodeGroup>
+  </Step>
+
+  <Step title="Contact Support" icon="mail">
+    If issues persist, submit a ticket with your project ID and error logs.
+  </Step>
+</Steps>
+
+## Best Practices for Large Projects
+
+Organize large documentation projects effectively using these platform-specific tips.
+
+<Tabs>
+  <Tab title="Monorepo Setup" icon="package">
+    Structure your docs alongside code:
+
+    ```
+    monorepo/
+    ├── packages/
+    │   └── app/
+    └── docs/
+        ├── content/
+        └── config.mdx
+    ```
+
+    Use the `docs` workspace in your `package.json`.
+  </Tab>
+
+  <Tab title="Versioned Docs" icon="git-branch">
+    Maintain multiple versions:
+
+    ```yaml
+    # docs/config.yaml
+    versions:
+      - label: "v2.0"
+        path: "/v2"
+      - label: "v1.0" 
+        path: "/v1"
+    ```
+  </Tab>
+
+  <Tab title="Search Optimization" icon="search">
+    Add structured data to improve search:
+
+    ```jsx
+    <Head>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Documentation"
+        })}
+      </script>
+    </Head>
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Limit nested folders to 3 levels deep for optimal build performance.
+</Callout>
+
+## Support and Community Resources
+
+Access help through these channels.
+
+<Columns cols={2}>
+  <Card title="Official Support" icon="life-buoy" href="https://djdinning.com/support">
+    Submit tickets for paid plans. Response within 24 hours.
+  </Card>
+
+  <Card title="Community Forum" icon="users" href="https://forum.djdinning.com" target="_blank">
+    Ask questions and share tips with other users.
+  </Card>
+
+  <Card title="GitHub Discussions" icon="github" href="https://github.com/djdinning/docs/discussions">
+    Feature requests and open-source contributions.
+  </Card>
+
+  <Card title="API Reference" icon="code" href="/docs/api">
+    Integrate programmatically with our REST API.
+  </Card>
+</Columns>
+
+For advanced troubleshooting, review logs in your dashboard under the Debug tab. This covers most scenarios you face with ดีเจ Dinning Documentation.

@@ -1,0 +1,144 @@
+---
+title: Quickstart Guide
+description: Get up and running quickly with your first documentation project in ดีเจ Dinning.
+---
+
+## Overview
+
+Start your first documentation project in ดีเจ Dinning within minutes. This guide walks you through creating a new space, uploading content, navigating the interface, and collaborating with your team. Follow these steps to build a professional docs site.
+
+<Columns cols={3}>
+  <Card title="Create Space" icon="plus" href="#create-space">
+    Set up your project area.
+  </Card>
+  <Card title="Upload Content" icon="upload" href="#upload-content">
+    Add your first pages.
+  </Card>
+  <Card title="Invite Team" icon="users" href="#invite-team">
+    Bring collaborators onboard.
+  </Card>
+</Columns>
+
+## Create a New Documentation Space
+
+Begin by setting up a dedicated space for your project.
+
+<Steps>
+  <Step title="Sign In" icon="log-in">
+    Visit the ดีเจ Dinning dashboard and sign in with your account.
+  </Step>
+  <Step title="New Space" icon="plus">
+    Click the `New Space` button in the top right. Enter a name like "My Project Docs" and select your brand color `#3B82F6`.
+  </Step>
+  <Step title="Configure" icon="settings">
+    Choose a template (e.g., API Docs or Product Guide) and save. Your space appears in the sidebar.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use descriptive names for spaces to keep your dashboard organized.
+</Callout>
+
+## Upload Initial Content
+
+Add your first Markdown or MDX files to populate the space.
+
+<Tabs>
+  <Tab title="Drag & Drop" icon="upload">
+    Open your space, navigate to the root folder, and drag files directly into the web interface. Supported formats include `.md`, `.mdx`, and images.
+  </Tab>
+  <Tab title="Git Sync" icon="git-branch">
+    Connect your GitHub repo:
+
+    ```bash
+    # In your repo root
+    git remote add djdinning https://github.com/yourusername/project-docs.git
+    git push djdinning main
+    ```
+
+    Sync takes `<30s`.
+  </Tab>
+  <Tab title="CLI Upload" icon="terminal">
+    Install the CLI:
+
+    <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm install -g @djdinning/cli
+    ```
+    ```bash
+    yarn global add @djdinning/cli
+    ```
+    </CodeGroup>
+
+    Then upload:
+
+    ```bash
+    djdinning upload --space=my-project-docs README.mdx
+    ```
+  </Tab>
+</Tabs>
+
+## Basic Navigation and Editing
+
+Explore the editor and preview your changes live.
+
+### Navigation
+
+Use the sidebar to browse spaces and pages. Search with `Cmd/Ctrl + K`.
+
+### Editing
+
+<Steps>
+  <Step title="Edit Page" icon="edit-3">
+    Click a page to open the split-view editor. Edit Markdown on the left, see live preview on the right.
+  </Step>
+  <Step title="Preview & Publish" icon="eye">
+    Toggle preview mode. Click `Publish` to make changes live.
+  </Step>
+</Steps>
+
+Example MDX snippet for a code block:
+
+````mdx
+```javascript
+const apiKey = `YOUR_API_KEY`;
+fetch(`https://api.djdinning.com/v1/spaces`, {
+  headers: { Authorization: `Bearer ${apiKey}` }
+});
+```
+````
+
+## Invite Team Members
+
+Share access securely.
+
+<Expandable title="Invitation Steps" default-open="true">
+  <Steps>
+    <Step title="Manage Team" icon="users">
+      Go to Space Settings > Team.
+    </Step>
+    <Step title="Add Member" icon="user-plus">
+      Enter email addresses. Select roles: Admin, Editor, or Viewer.
+    </Step>
+    <Step title="Send Invite" icon="send">
+      Invites expire in 7 days. Members confirm via email.
+    </Step>
+  </Steps>
+</Expandable>
+
+<Callout kind="info">
+  Admins can manage billing and delete spaces. Start with Editor roles for contributors.
+</Callout>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Customize Theme" icon="palette" href="/docs/themes">
+    Apply your `#3B82F6` brand color across pages.
+  </Card>
+  <Card title="Advanced MDX" icon="code" href="/docs/mdx-components">
+    Use components like `<Callout>` and `<Steps>`.
+  </Card>
+</Columns>
+
+Your docs site is now live at `https://docs.djdinning.com/your-space`. Share the link with your team!
